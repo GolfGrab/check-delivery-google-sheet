@@ -1,10 +1,15 @@
 import React, { useRef } from 'react'
 
-function FormSection(props: { setOrders: any; allOrders: any }) {
+function FormSection(props: {
+  setOrders: any
+  allOrders: any
+  fetchOrders: any
+}) {
   const ref = useRef<any>('')
-
   const handleSubmit = (e: any) => {
     e.preventDefault()
+    props.fetchOrders()
+
     const Username = ref.current.value
     if (Username) {
       // console.log(Username)
