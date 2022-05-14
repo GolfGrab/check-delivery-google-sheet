@@ -1,13 +1,18 @@
 import React, { useRef } from 'react'
 
-function FormSection(props: { setOrders: any }) {
+function FormSection(props: { setOrders: any; allOrders: any }) {
   const ref = useRef<any>('')
 
   const handleSubmit = (e: any) => {
     e.preventDefault()
     const Username = ref.current.value
     if (Username) {
-      console.log(Username)
+      // console.log(Username)
+      const orders = props.allOrders.filter((order: any, index: number) => {
+        return order[2] === Username || index < 10
+      })
+      props.setOrders(orders)
+      // console.log(orders)
     }
   }
 

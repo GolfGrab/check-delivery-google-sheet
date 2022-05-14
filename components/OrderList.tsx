@@ -2,8 +2,8 @@ import React from 'react'
 import OrderCard from './OrderCard'
 
 export default function OrderList(props: any) {
-  console.log(props.mockOrders)
-  const ordersData = props.mockOrders.slice(11, props.mockOrders.length - 1)
+  // console.log(props.orders)
+  const ordersData = props.orders.slice(10, props.orders.length)
   return (
     <div className="flex flex-wrap items-center justify-center py-[3rem] ">
       {ordersData.map((order: any, index: number) => {
