@@ -18,14 +18,14 @@ function FormSection(props: { setOrders: any; allOrders: any }) {
 
   return (
     <>
-      <p className=" mb-[0.75rem] text-center">
+      <p className=" mb-[2rem] text-center">
         กรุณากรอก
         <span className="mx-1 font-semibold text-indigo-600 underline">
           Twitter Username
         </span>
         เพื่อเช็คออเดอร์ค่ะ
       </p>
-      <form autoComplete="off" onSubmit={handleSubmit}>
+      <form autoComplete="off" onSubmit={handleSubmit} className="scale-[120%]">
         <div className="relative">
           <div className="absolute left-0 top-0 flex h-full w-10 border border-transparent">
             <div className="z-10 flex h-full w-full items-center justify-center rounded-tl rounded-bl bg-gray-100 text-lg text-indigo-400">
@@ -56,7 +56,7 @@ function FormSection(props: { setOrders: any; allOrders: any }) {
           />
         </div>
         <button
-          className="my-[0.75rem] h-full w-full rounded-md bg-[#977fd7] py-2 px-4 font-bold text-white transition-colors duration-150 ease-in-out hover:bg-purple-600 focus:outline-none  focus:ring focus:ring-purple-300 focus:ring-opacity-40"
+          className="my-[1rem] h-full w-full rounded-md bg-[#977fd7] py-2 px-4 font-bold text-white transition-colors duration-150 ease-in-out hover:bg-purple-600 focus:outline-none  focus:ring focus:ring-purple-300 focus:ring-opacity-40"
           type="submit"
         >
           ตรวจสอบ

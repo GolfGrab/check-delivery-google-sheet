@@ -26,6 +26,7 @@ const Home: NextPage = () => {
         setIsLoading(false)
         setIsError(false)
         // console.log(res.data.values)
+        console.log('fetch data from google sheet')
       })
       .catch((err) => {
         console.log(err)
@@ -58,12 +59,14 @@ const Home: NextPage = () => {
       <TitleSection />
 
       <FormSection setOrders={setOrders} allOrders={allOrders} />
+
+      {/* order section */}
       {!!orders.length && (
         <>
           <div>
             อัปเดตล่าสุด วันที่ {orders[4][4]} เวลา {orders[4][6]}
           </div>
-          {orders && (
+          {orders.length > 10 && (
             <OrderList orders={orders} key={orders.length + orders[10][2]} />
           )}
         </>
