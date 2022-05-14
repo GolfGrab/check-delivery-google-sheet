@@ -16,9 +16,7 @@ const Home: NextPage = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [isError, setIsError] = useState(false)
 
-  useEffect(() => {
-    setIsLoading(true)
-    // console.log('apiUrl', process.env)
+  const fetchOrders = async () => {
     axios
       .get(apiUrl)
       .then((res) => {
@@ -33,6 +31,12 @@ const Home: NextPage = () => {
         setIsLoading(false)
         setIsError(true)
       })
+  }
+
+  useEffect(() => {
+    setIsLoading(true)
+    // console.log('apiUrl', process.env)
+    fetchOrders()
   }, [])
 
   return (
@@ -58,7 +62,11 @@ const Home: NextPage = () => {
 
       <TitleSection />
 
-      <FormSection setOrders={setOrders} allOrders={allOrders} />
+      <FormSection
+        setOrders={setOrders}
+        allOrders={allOrders}
+        fetchOrders={fetchOrders}
+      />
 
       {/* order section */}
       {!!orders.length && (
