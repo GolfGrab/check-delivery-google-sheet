@@ -1,5 +1,7 @@
 import React, { useRef } from 'react'
 import ContactLink from './ContactLink'
+import Swal from 'sweetalert2'
+import OrderList from './OrderList'
 
 function FormSection(props: {
   setOrders: any
@@ -11,7 +13,8 @@ function FormSection(props: {
     e.preventDefault()
     props.fetchOrders()
 
-    const Username = ref.current.value
+    const Username = ref.current.value.trim()
+
     if (Username) {
       // console.log(Username)
       const orders = props.allOrders.filter((order: any, index: number) => {
@@ -19,6 +22,24 @@ function FormSection(props: {
       })
       props.setOrders(orders)
       // console.log(orders)
+
+      if (orders.length <= 10) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          html: `<p class="p-2">ไม่พบข้อมูลออร์เดอร์</p><p class="p-2">กรุณากรอกข้อมูลให้ถูกต้องครับ</p><p class="p-2">หรือลอง AAA </p>`,
+        })
+      } else {
+        Swal.fire('Done!', '<br/>ค้นหารายการสั่งซื้อเสร็จสิ้น<br/>', 'success')
+      }
+    }
+
+    if (!Username) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'กรุณากรอก Username ก่อนค้นหาครับ  หรือลอง AAA',
+      })
     }
   }
 
@@ -27,7 +48,7 @@ function FormSection(props: {
       <p className=" mb-[2rem] text-center">
         กรุณากรอก
         <span className="mx-1 font-semibold text-indigo-600 underline">
-          Twitter Username
+          Username
         </span>
         เพื่อเช็คออเดอร์ค่ะ
       </p>
@@ -57,7 +78,7 @@ function FormSection(props: {
             ref={ref}
             name="name"
             type="text"
-            placeholder="Name"
+            placeholder="Username"
             className="relative w-full rounded  py-2 pr-2 pl-12 text-sm placeholder-gray-400 ring-2  focus:outline-none focus:ring-indigo-600 sm:text-base "
           />
         </div>

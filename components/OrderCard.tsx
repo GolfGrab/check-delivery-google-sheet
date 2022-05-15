@@ -37,6 +37,7 @@ function OrderCard(props: any) {
           {order[4].split('\n').map((item: any, index: number) => {
             return <p key={order.join(item + index * -3)}> {item}</p>
           })}
+          <br />
         </div>
       )}
 

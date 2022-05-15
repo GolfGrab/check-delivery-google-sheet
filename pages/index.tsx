@@ -67,12 +67,17 @@ const Home: NextPage = () => {
       {/* order section */}
       {!!orders.length && (
         <>
-          <div>
+          <div className="text-fuchsia-600">
             <br />
             อัปเดตล่าสุด วันที่ {orders[4][4]} เวลา {orders[4][6]}
           </div>
           {orders.length > 10 && (
-            <OrderList orders={orders} key={orders.length + orders[10][2]} />
+            <>
+              <div className="mt-10 mb-[-2rem] rounded-xl bg-[#fff6f0] p-2 text-lg underline decoration-2 underline-offset-4 ">
+                ออเดอร์ของ : {orders[10][2]}
+              </div>
+              <OrderList orders={orders} key={orders.length + orders[10][2]} />
+            </>
           )}
         </>
       )}
