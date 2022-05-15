@@ -1,4 +1,5 @@
 import React, { useRef } from 'react'
+import ContactLink from './ContactLink'
 
 function FormSection(props: {
   setOrders: any
@@ -30,7 +31,7 @@ function FormSection(props: {
         </span>
         เพื่อเช็คออเดอร์ค่ะ
       </p>
-      <form autoComplete="off" onSubmit={handleSubmit} className="scale-[120%]">
+      <form autoComplete="off" onSubmit={handleSubmit} className="w-72">
         <div className="relative">
           <div className="absolute left-0 top-0 flex h-full w-10 border border-transparent">
             <div className="z-10 flex h-full w-full items-center justify-center rounded-tl rounded-bl bg-gray-100 text-lg text-indigo-400">
@@ -66,6 +67,7 @@ function FormSection(props: {
         >
           ตรวจสอบ
         </button>
+        <ContactLink />
       </form>
     </>
   )

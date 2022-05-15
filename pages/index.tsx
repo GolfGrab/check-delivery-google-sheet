@@ -72,6 +72,7 @@ const Home: NextPage = () => {
       {!!orders.length && (
         <>
           <div>
+            <br />
             อัปเดตล่าสุด วันที่ {orders[4][4]} เวลา {orders[4][6]}
           </div>
           {orders.length > 10 && (
